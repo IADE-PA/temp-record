@@ -14,7 +14,7 @@ bool equal_elements(Element* first, Element* second) {
 int main() {
     char filename[] = "data.iade";
     ListMM list = list_create(filename);
-    if(list == NULL) {
+    if (list == NULL) {
         list = list_open(filename);
     }
 
@@ -33,10 +33,9 @@ int main() {
             element.temperature = strtof(temperature, NULL);
             strcpy(element.date, date);
             list_insert_last(list, &element);
-            
+
             printf("Valor registado com sucesso.\n");
-        }
-        else if(strcmp(command, "CR") == 0) {
+        } else if (strcmp(command, "CR") == 0) {
             char* date = strtok(NULL, " ");
             date[8] = '\0';
             // * Implementar uma função que compara elementos
@@ -46,10 +45,14 @@ int main() {
             // * Invocar list_find
             int idx = list_find(list, equal_elements, &element);
             // * Mostrar a temperatura para a data indicada
-            if(idx > 0) {
+            if (idx > 0) {
                 Element target = list_get(list, idx);
                 printf("A temperatura em %s foi %f\n", target.date, target.temperature);
+            } else {
+                printf("Data sem registo.\n");
             }
+        } else if (strcmp(command, "LR") == 0) {
+            
         }
     }
 
