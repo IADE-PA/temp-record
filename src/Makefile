@@ -27,4 +27,4 @@ cov: clean tests
 
 .PHONY: clean
 clean:
-	rm -f *.o *.gcda *.gcno *.gcov main tests
+	rm -f *.o *.gcda *.gcno *.gcov *.iade main tests
