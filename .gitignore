@@ -3,3 +3,4 @@
 *gcda
 *.o
 .vscode/*
+*.iade
