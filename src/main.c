@@ -56,7 +56,7 @@ int main() {
             // * Invocar list_find
             int idx = list_find(list, equal_elements, &element);
             // * Mostrar a temperatura para a data indicada
-            if (idx > 0) {
+            if (idx >= 0) {
                 Element target = list_get(list, idx);
                 printf("A temperatura em %s foi %1.2f\n", target.date, target.temperature);
             } else {
@@ -66,6 +66,20 @@ int main() {
             for(size_t i=0; i<list_size(list); i++) {
                 Element element = list_get(list, i);
                 printf("%s -> %1.2f\n", element.date, element.temperature);
+            }
+        }
+        else if (strcmp(command, "ER") == 0) {
+            char* date = strtok(NULL, " ");
+            date[8] = '\0';
+            Element element;
+            strcpy(element.date, date);
+            int idx = list_find(list, equal_elements, &element);
+            if(idx < 0) {
+                printf("Registo inexistente.\n");
+            }
+            else {
+                list_remove(list, idx);
+                printf("Registo removido com sucesso.\n");
             }
         }
     }
