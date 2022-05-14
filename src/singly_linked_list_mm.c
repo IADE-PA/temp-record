@@ -149,7 +149,7 @@ void list_insert(ListMM list, Element* element, size_t position) {
 // or -1 if the specified element does not
 // occur in the list.
 int list_find(ListMM list, bool (*equal)(Element*, Element*), Element* element) {
-    int position = 1;
+    int position = 0;
     FileCell cell = list->index.head;
     Node_ node;
     read_cell(list->file_mem, cell, (void*)&node);
